@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="lib/bootstrap-5.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/stepper/bs-stepper.min.css">
     <title>Профорієнтаційна система</title>
 </head>
 <body>
@@ -13,7 +14,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">Proforientation.ua</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
@@ -41,8 +43,177 @@
 </header>
 
 <content>
-    Start test
-</main>
+    <div class="container">
+        <div class="bs-stepper">
+            <div class="bs-stepper-header" role="tablist">
+                <!-- your steps here -->
+                <div class="step" data-target="#zno-part">
+                    <button type="button" class="step-trigger" role="tab" aria-controls="zno-part"
+                            id="zno-part-trigger">
+                        <span class="bs-stepper-circle">1</span>
+                        <span class="bs-stepper-label">Обрати ЗНО</span>
+                    </button>
+                </div>
+                <div class="line"></div>
+                <div class="step" data-target="#test-part">
+                    <button type="button" class="step-trigger" role="tab" aria-controls="test-part"
+                            id="test-part-trigger">
+                        <span class="bs-stepper-circle">2</span>
+                        <span class="bs-stepper-label">Профорієнтаційний тест</span>
+                    </button>
+                </div>
+                <div class="line"></div>
+                <div class="step" data-target="#result-part">
+                    <button type="button" class="step-trigger" role="tab" aria-controls="result-part"
+                            id="result-part-trigger">
+                        <span class="bs-stepper-circle">3</span>
+                        <span class="bs-stepper-label">Результати</span>
+                    </button>
+                </div>
+            </div>
+            <div class="bs-stepper-content">
+                <!-- your steps content here -->
+                <form action="result" method="post" name="test-results">
+                    <div id="zno-part" class="content" role="tabpanel" aria-labelledby="zno-part-trigger">
+                        <!-- ZNO select section -->
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Оберіть перше ЗНО</option>
+                            <option value="1">Українська мова</option>
+                            <option value="2">Українська мова і література</option>
+                            <option value="3">Математика (завдання рівня стандарту)</option>
+                            <option value="4">Математика</option>
+                            <option value="5">Історія України</option>
+                            <option value="6">Англійська мова</option>
+                            <option value="7">Іспанська мова</option>
+                            <option value="8">Німецька мова</option>
+                            <option value="9">Французька мова</option>
+                            <option value="10">Біологія</option>
+                            <option value="11">Географія</option>
+                            <option value="12">Фізика</option>
+                            <option value="13">Хімія</option>
+                        </select>
+
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Оберіть друге ЗНО</option>
+                            <option value="1">Українська мова</option>
+                            <option value="2">Українська мова і література</option>
+                            <option value="3">Математика (завдання рівня стандарту)</option>
+                            <option value="4">Математика</option>
+                            <option value="5">Історія України</option>
+                            <option value="6">Англійська мова</option>
+                            <option value="7">Іспанська мова</option>
+                            <option value="8">Німецька мова</option>
+                            <option value="9">Французька мова</option>
+                            <option value="10">Біологія</option>
+                            <option value="11">Географія</option>
+                            <option value="12">Фізика</option>
+                            <option value="13">Хімія</option>
+                        </select>
+
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Оберіть третє ЗНО</option>
+                            <option value="1">Українська мова</option>
+                            <option value="2">Українська мова і література</option>
+                            <option value="3">Математика (завдання рівня стандарту)</option>
+                            <option value="4">Математика</option>
+                            <option value="5">Історія України</option>
+                            <option value="6">Англійська мова</option>
+                            <option value="7">Іспанська мова</option>
+                            <option value="8">Німецька мова</option>
+                            <option value="9">Французька мова</option>
+                            <option value="10">Біологія</option>
+                            <option value="11">Географія</option>
+                            <option value="12">Фізика</option>
+                            <option value="13">Хімія</option>
+                        </select>
+
+                        <div class="mx-auto" style="width: 200px;">
+                            <input type="button" class="btn bg-primary text-white" id="next-step-btn" value="Далі">
+                        </div>
+                    </div>
+                    <div id="test-part" class="content" role="tabpanel"
+                         aria-labelledby="test-part-trigger">
+                        <!-- Basic career guidance test -->
+                        <h5 class="mt-4">Какой-то вопрос номер 1</h5>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Ответ номер 1
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Ответ номер 2
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+                            <label class="form-check-label" for="flexRadioDefault3">
+                                Ответ номер 3
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4">
+                            <label class="form-check-label" for="flexRadioDefault4">
+                                Ответ номер 4
+                            </label>
+                        </div>
+
+                        <h5 class="mt-4">Какой-то вопрос номер 2</h5>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault1"
+                                   id="flexRadioDefault11">
+                            <label class="form-check-label" for="flexRadioDefault11">
+                                Ответ номер 1
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault1"
+                                   id="flexRadioDefault12">
+                            <label class="form-check-label" for="flexRadioDefault12">
+                                Ответ номер 2
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault1"
+                                   id="flexRadioDefault13">
+                            <label class="form-check-label" for="flexRadioDefault13">
+                                Ответ номер 3
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault1"
+                                   id="flexRadioDefault14">
+                            <label class="form-check-label" for="flexRadioDefault14">
+                                Ответ номер 4
+                            </label>
+                        </div>
+
+                        <div class="mx-auto" style="width: 500px;">
+                            <input type="button" class="btn bg-primary text-white" id="previous-step-btn"
+                                   value="Повернусись">
+                            <input type="submit" class="btn bg-primary text-white"
+                                   value="Завершити та показати результати">
+                        </div>
+                    </div>
+
+                    <div id="result-part" class="content" role="tabpanel" aria-labelledby="result-part-trigger">
+                        <!-- Result of test & list of universities -->
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+</content>
 
 <footer>
 
@@ -50,6 +221,8 @@
 
 <!-- JavaScript connections -->
 <script src="lib/bootstrap-5.1.3/js/bootstrap.bundle.js"></script>
+<script src="lib/stepper/bs-stepper.min.js"></script>
 <script src="../dist/main.js"></script>
 </body>
 </html>
+

@@ -10,6 +10,9 @@
   "keywords": [],
   "author": "Alexander Yarkin",
   "license": "ISC",
+  "dependencies": {
+    "bs-stepper": "^1.7.0"
+  },
   "devDependencies": {
     "babel-loader": "^8.2.2",
     "webpack": "^5.28.0",
