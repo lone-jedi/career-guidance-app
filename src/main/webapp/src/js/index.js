@@ -10,7 +10,7 @@ window.addEventListener("load", function() {
         stepper.previous();
     });
 
-    nextStepBtn[0].addEventListener('click', function () {
+    nextStepBtn.addEventListener('click', function () {
         stepper.next();
     });
 
