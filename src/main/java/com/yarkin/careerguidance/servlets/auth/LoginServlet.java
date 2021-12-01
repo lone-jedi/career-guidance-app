@@ -1,7 +1,7 @@
-package com.yarkin.careerguidance.servlets;
+package com.yarkin.careerguidance.servlets.auth;
 
 import com.yarkin.careerguidance.services.UserService;
-import com.yarkin.careerguidance.templater.PageGenerator;
+import com.yarkin.careerguidance.utils.templater.PageGenerator;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,8 +15,6 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getSession().removeAttribute("user_email");
-
         Map<String, Object> params = new HashMap<>();
         params.put("email", request.getParameter("email"));
         params.put("error_msg", request.getParameter("error_msg"));
@@ -39,6 +37,6 @@ public class LoginServlet extends HttpServlet {
         }
 
         request.getSession().setAttribute("user_email", email);
-        response.sendRedirect("/start/test");
+        response.sendRedirect("/user/start/test");
     }
 }

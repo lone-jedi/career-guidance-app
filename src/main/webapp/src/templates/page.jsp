@@ -22,7 +22,7 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/start/test">Розпочати тест</a>
+                        <a class="nav-link" aria-current="page" href="/user/start/test">Розпочати тест</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="all-tests.html">Тести</a>
@@ -38,7 +38,7 @@
                     </li>
                 </ul>
                 <span class="navbar-text">
-                        Вітаємо, <a href="login.html">${user_email}</a>!
+                        Вітаємо, <a href="/user/profile">${user_email}</a>! <a href="/logout">Вийти</a>
                     <!-- Left text-->
                     </span>
             </div>
