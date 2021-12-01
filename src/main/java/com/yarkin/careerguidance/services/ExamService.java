@@ -17,7 +17,7 @@ public class ExamService {
         examDao.add(exam);
     }
 
-    public void delete(int id) {
+    public void delete(long id) {
         examDao.delete(id);
     }
 
@@ -28,5 +28,13 @@ public class ExamService {
             examTitles[i] = exams[i].getTitle();
         }
         return examTitles;
+    }
+
+    public void update(Exam exam) {
+        examDao.update(exam);
+    }
+
+    public Exam get(long id) {
+        return examDao.get(id);
     }
 }

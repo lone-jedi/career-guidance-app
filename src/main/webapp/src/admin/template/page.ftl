@@ -20,17 +20,11 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/university/all">ВНЗ</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">
-                        ЗНО
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/admin/zno/all">Показати всі</a></li>
-                    </ul>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/zno/all">ЗНО</a>
                 </li>
             </ul>
         </div>

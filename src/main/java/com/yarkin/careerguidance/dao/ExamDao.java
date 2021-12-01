@@ -13,8 +13,10 @@ import java.util.List;
 
 public class ExamDao {
     private static final ExamRowMapper EXAM_ROW_MAPPER = new ExamRowMapper();
-    public static final String SELECT_ALL = "SELECT id, title, description FROM zno;";
+    public static final String SELECT_ALL = "SELECT id, title, description FROM zno ORDER BY id DESC;";
+    public static final String SELECT_BY_ID = "SELECT id, title, description FROM zno WHERE id=?;";
     public static final String INSERT = "INSERT INTO zno(title, description) VALUES (?, ?);";
+    public static final String UPDATE = "UPDATE zno SET title=?, description=? WHERE id=?;";
     private static final String DELETE = "DELETE FROM zno WHERE id=?";
 
     private final Connection connection = JdbcConnection.instance();
@@ -48,14 +50,43 @@ public class ExamDao {
         }
     }
 
-    public void delete(int id) {
+    public void delete(long id) {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(DELETE);
-            preparedStatement.setInt(1, id);
+            preparedStatement.setLong(1, id);
 
             preparedStatement.execute();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public void update(Exam exam) {
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE);
+            preparedStatement.setString(1, exam.getTitle());
+            preparedStatement.setString(2, exam.getDescription());
+            preparedStatement.setLong(3, exam.getId());
+
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public Exam get(long id) {
+        Exam exam = null;
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_BY_ID);
+            preparedStatement.setLong(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet.next();
+            exam = EXAM_ROW_MAPPER.mapRow(resultSet);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return exam;
     }
 }
