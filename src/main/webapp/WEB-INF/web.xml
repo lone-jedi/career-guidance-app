@@ -23,6 +23,16 @@
     </servlet>
 
     <servlet>
+        <servlet-name>Register</servlet-name>
+        <servlet-class>com.yarkin.careerguidance.servlets.auth.RegisterServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>EditUser</servlet-name>
+        <servlet-class>com.yarkin.careerguidance.servlets.user.UserEditServlet</servlet-class>
+    </servlet>
+
+    <servlet>
         <servlet-name>LoginAdmin</servlet-name>
         <servlet-class>com.yarkin.careerguidance.servlets.admin.auth.LoginAdminServlet</servlet-class>
     </servlet>
@@ -30,6 +40,16 @@
     <servlet>
         <servlet-name>LogoutAdmin</servlet-name>
         <servlet-class>com.yarkin.careerguidance.servlets.admin.auth.LogoutAdminServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>AllUsers</servlet-name>
+        <servlet-class>com.yarkin.careerguidance.servlets.admin.user.AllUsersServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>DeleteUser</servlet-name>
+        <servlet-class>com.yarkin.careerguidance.servlets.admin.user.DeleteUserServlet</servlet-class>
     </servlet>
 
     <servlet>
@@ -53,14 +73,73 @@
     </servlet>
 
     <servlet>
-        <servlet-name>AddExams</servlet-name>
-        <servlet-class>com.yarkin.careerguidance.servlets.admin.exam.AddExamsServlet</servlet-class>
+        <servlet-name>AddExam</servlet-name>
+        <servlet-class>com.yarkin.careerguidance.servlets.admin.exam.AddExamServlet</servlet-class>
     </servlet>
 
     <servlet>
-        <servlet-name>DeleteExams</servlet-name>
-        <servlet-class>com.yarkin.careerguidance.servlets.admin.exam.DeleteExamsServlet</servlet-class>
+        <servlet-name>DeleteExam</servlet-name>
+        <servlet-class>com.yarkin.careerguidance.servlets.admin.exam.DeleteExamServlet</servlet-class>
     </servlet>
+
+    <servlet>
+        <servlet-name>EditExam</servlet-name>
+        <servlet-class>com.yarkin.careerguidance.servlets.admin.exam.EditExamServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>AllUniversities</servlet-name>
+        <servlet-class>com.yarkin.careerguidance.servlets.admin.university.AllUniversitiesServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>AddUniversity</servlet-name>
+        <servlet-class>com.yarkin.careerguidance.servlets.admin.university.AddUniversityServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>DeleteUniversity</servlet-name>
+        <servlet-class>com.yarkin.careerguidance.servlets.admin.university.DeleteUniversityServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>EditUniversity</servlet-name>
+        <servlet-class>com.yarkin.careerguidance.servlets.admin.university.EditUniversityServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>OneUniversity</servlet-name>
+        <servlet-class>com.yarkin.careerguidance.servlets.admin.university.OneUniversityServlet</servlet-class>
+    </servlet>
+
+    <!--
+
+    <servlet>
+        <servlet-name>AllTests</servlet-name>
+        <servlet-class>com.yarkin.careerguidance.servlets.admin.test.AllTestServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>OneTest</servlet-name>
+        <servlet-class>com.yarkin.careerguidance.servlets.admin.test.OneTestServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>AddTest</servlet-name>
+        <servlet-class>com.yarkin.careerguidance.servlets.admin.test.AddTestServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>EditTest</servlet-name>
+        <servlet-class>com.yarkin.careerguidance.servlets.admin.test.EditTestServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>DeleteTest</servlet-name>
+        <servlet-class>com.yarkin.careerguidance.servlets.admin.test.DeleteTestServlet</servlet-class>
+    </servlet>
+
+    -->
 
     <!-- Servlets mapping -->
 
@@ -89,6 +168,16 @@
         <url-pattern>/user/get/test/result</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+        <servlet-name>EditUser</servlet-name>
+        <url-pattern>/user/edit</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Register</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+
     <!-- Admin servlets -->
 
     <servlet-mapping>
@@ -112,15 +201,58 @@
     </servlet-mapping>
 
     <servlet-mapping>
-        <servlet-name>AddExams</servlet-name>
+        <servlet-name>AddExam</servlet-name>
         <url-pattern>/admin/zno/add</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
-        <servlet-name>DeleteExams</servlet-name>
+        <servlet-name>DeleteExam</servlet-name>
         <url-pattern>/admin/zno/delete</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+        <servlet-name>EditExam</servlet-name>
+        <url-pattern>/admin/zno/edit</url-pattern>
+    </servlet-mapping>
+
+    <!-- University-->
+
+    <servlet-mapping>
+        <servlet-name>AllUniversities</servlet-name>
+        <url-pattern>/admin/university/all</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>AddUniversity</servlet-name>
+        <url-pattern>/admin/university/add</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>DeleteUniversity</servlet-name>
+        <url-pattern>/admin/university/delete</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>EditUniversity</servlet-name>
+        <url-pattern>/admin/university/edit</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>OneUniversity</servlet-name>
+        <url-pattern>/admin/university/one</url-pattern>
+    </servlet-mapping>
+
+    <!-- User -->
+
+    <servlet-mapping>
+        <servlet-name>AllUsers</servlet-name>
+        <url-pattern>/admin/user/all</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>DeleteUser</servlet-name>
+        <url-pattern>/admin/user/delete</url-pattern>
+    </servlet-mapping>
 
     <!-- Default mapping for static resources (e.g. css, js, img, ...) -->
 

@@ -6,7 +6,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.IOException;
 
-public class DeleteExamsServlet extends HttpServlet {
+public class DeleteExamServlet extends HttpServlet {
     private final ExamService examService = new ExamService();
 
     @Override

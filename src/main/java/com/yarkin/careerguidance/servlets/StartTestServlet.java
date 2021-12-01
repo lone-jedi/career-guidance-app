@@ -1,8 +1,8 @@
 package com.yarkin.careerguidance.servlets;
 
+import com.yarkin.careerguidance.services.ExamService;
 import com.yarkin.careerguidance.services.ResultService;
 import com.yarkin.careerguidance.services.SpecialtyService;
-import com.yarkin.careerguidance.services.ZnoService;
 import com.yarkin.careerguidance.utils.templater.PageGenerator;
 
 import javax.servlet.ServletException;
@@ -15,7 +15,7 @@ import java.util.Map;
 
 public class StartTestServlet extends HttpServlet {
     private final ResultService resultService = new ResultService();
-    private final ZnoService znoService = new ZnoService();
+    private final ExamService examService = new ExamService();
     private final SpecialtyService specialtiesService = new SpecialtyService();
 
     @Override
@@ -24,7 +24,7 @@ public class StartTestServlet extends HttpServlet {
         Map<String, Object> params = new HashMap<>();
 
         // get ZNOs from DataBase
-        String[] znoNames = znoService.getNames();
+        String[] znoNames = examService.getNames();
 
         params.put("znos", znoNames);
         String content = PageGenerator.instance().getPage("maintest.ftl", params);

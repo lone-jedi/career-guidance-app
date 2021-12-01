@@ -20,4 +20,13 @@ public class ExamService {
     public void delete(int id) {
         examDao.delete(id);
     }
+
+    public String[] getNames() {
+        Exam[] exams = getAll();
+        String[] examTitles = new String[exams.length];
+        for (int i = 0; i < exams.length; i++) {
+            examTitles[i] = exams[i].getTitle();
+        }
+        return examTitles;
+    }
 }
