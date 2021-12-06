@@ -30,8 +30,8 @@ public class ExamService {
         return examTitles;
     }
 
-    public void update(Exam exam) {
-        examDao.update(exam);
+    public void update(long id, Exam exam) {
+        examDao.update(id, exam);
     }
 
     public Exam get(long id) {

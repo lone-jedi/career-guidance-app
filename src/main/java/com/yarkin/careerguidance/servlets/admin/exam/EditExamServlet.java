@@ -34,10 +34,10 @@ public class EditExamServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         String title = request.getParameter("title");
         String description = request.getParameter("description");
-        Exam exam = new Exam(id, title, description);
+        Exam exam = new Exam(title, description);
 
         // add to db
-        examService.update(exam);
+        examService.update(id, exam);
         response.sendRedirect("/admin/zno/all?msg=Successfully updated");
     }
 }

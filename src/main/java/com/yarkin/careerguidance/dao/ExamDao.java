@@ -22,7 +22,7 @@ public class ExamDao {
     private final Connection connection = JdbcConnection.instance();
 
     public List<Exam> getAll() {
-        List<Exam> result = null;
+        List<Exam> result;
 
         try (ResultSet resultSet = connection.prepareStatement(SELECT_ALL).executeQuery();) {
             result = new ArrayList<>();
@@ -58,7 +58,7 @@ public class ExamDao {
         }
     }
 
-    public void update(Exam exam) {
+    public void update(long id, Exam exam) {
         try (PreparedStatement preparedStatement = connection.prepareStatement(UPDATE);) {
             preparedStatement.setString(1, exam.getTitle());
             preparedStatement.setString(2, exam.getDescription());
