@@ -24,65 +24,61 @@ public class ExamDao {
     public List<Exam> getAll() {
         List<Exam> result = null;
 
-        try {
-            ResultSet resultSet = connection.prepareStatement(SELECT_ALL).executeQuery();
-
+        try (ResultSet resultSet = connection.prepareStatement(SELECT_ALL).executeQuery();) {
             result = new ArrayList<>();
-            while(resultSet.next()) {
+            while (resultSet.next()) {
                 result.add(EXAM_ROW_MAPPER.mapRow(resultSet));
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException("Cannot get all exams", e);
         }
 
         return result;
     }
 
     public void add(Exam exam) {
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(INSERT);
+        try (PreparedStatement preparedStatement = connection.prepareStatement(INSERT);) {
             preparedStatement.setString(1, exam.getTitle());
             preparedStatement.setString(2, exam.getDescription());
-
             preparedStatement.execute();
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException("Cannot add exam", e);
         }
     }
 
     public void delete(long id) {
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(DELETE);
+        try (PreparedStatement preparedStatement = connection.prepareStatement(DELETE);) {
             preparedStatement.setLong(1, id);
-
             preparedStatement.execute();
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException("Cannot delete exam id=" + id, e);
         }
     }
 
     public void update(Exam exam) {
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE);
+        try (PreparedStatement preparedStatement = connection.prepareStatement(UPDATE);) {
             preparedStatement.setString(1, exam.getTitle());
             preparedStatement.setString(2, exam.getDescription());
             preparedStatement.setLong(3, exam.getId());
-
             preparedStatement.execute();
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException("Cannot update exam id=" + exam.getId(), e);
         }
     }
 
     public Exam get(long id) {
         Exam exam = null;
 
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_BY_ID);
+        try (PreparedStatement preparedStatement = connection.prepareStatement(SELECT_BY_ID);) {
             preparedStatement.setLong(1, id);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            resultSet.next();
-            exam = EXAM_ROW_MAPPER.mapRow(resultSet);
+            try (ResultSet resultSet = preparedStatement.executeQuery();) {
+                resultSet.next();
+                exam = EXAM_ROW_MAPPER.mapRow(resultSet);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
