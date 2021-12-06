@@ -22,7 +22,7 @@ public class LoginServlet extends HttpServlet {
 
         request.setAttribute("user_email", "гість");
         request.setAttribute("content", loginContent);
-        request.getRequestDispatcher("src/templates/page.jsp").forward(request, response);
+        request.getRequestDispatcher("src/templates/page.ftl").forward(request, response);
     }
 
     @Override

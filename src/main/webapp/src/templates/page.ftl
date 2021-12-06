@@ -6,7 +6,9 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/resources/lib/bootstrap-5.1.3/css/bootstrap.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="/resources/lib/stepper/bs-stepper.min.css">
     <title>Профорієнтаційна система</title>
 </head>
@@ -38,7 +40,12 @@
                     </li>
                 </ul>
                 <span class="navbar-text">
-                        Вітаємо, <a href="/user/profile">${user_email}</a>! <a href="/logout">Вийти</a>
+                    <#if user_email??>
+                        Вітаємо, <a href="/user/profile">${user_email}</a>! <a href="/logout" class="btn btn-info">Вийти</a>
+                    <#else>
+                        Вітаємо, гість! <a href="/login" class="btn btn-primary">Увійти</a>
+                    </#if>
+
                     <!-- Left text-->
                     </span>
             </div>
@@ -58,7 +65,9 @@
 </footer>
 
 <!-- JavaScript connections -->
-<script src="/resources/lib/bootstrap-5.1.3/js/bootstrap.bundle.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
 <script src="/resources/lib/stepper/bs-stepper.min.js"></script>
 <script src="/resources/dist/main.js"></script>
 </body>

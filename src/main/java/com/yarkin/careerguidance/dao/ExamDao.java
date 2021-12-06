@@ -62,7 +62,7 @@ public class ExamDao {
         try (PreparedStatement preparedStatement = connection.prepareStatement(UPDATE);) {
             preparedStatement.setString(1, exam.getTitle());
             preparedStatement.setString(2, exam.getDescription());
-            preparedStatement.setLong(3, exam.getId());
+            preparedStatement.setLong(3, id);
             preparedStatement.execute();
         } catch (SQLException e) {
             e.printStackTrace();
