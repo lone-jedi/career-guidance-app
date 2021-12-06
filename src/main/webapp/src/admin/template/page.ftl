@@ -25,6 +25,9 @@
                     <a class="nav-link" href="/admin/university/all">ВНЗ</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="/admin/specialty/all">Спеціальності</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/admin/zno/all">ЗНО</a>
                 </li>
             </ul>
