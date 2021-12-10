@@ -32,22 +32,22 @@
                 <!-- ZNO select section -->
                 <h5 class="mt-5">Оберіть перше ЗНО</h5>
                 <select class="form-select" aria-label="Default select example" name="first-zno">
-                    <#list znos as zno>
-                    <option value="${zno?counter}">${zno}</option>
+                    <#list exams as exam>
+                    <option value="${exam.id}">${exam.title}</option>
                     </#list>
                 </select>
 
                 <h5 class="mt-5">Оберіть друге ЗНО</h5>
                 <select class="form-select" aria-label="Default select example" name="second-zno">
-                    <#list znos as zno>
-                    <option value="${zno?counter}">${zno}</option>
+                    <#list exams as exam>
+                    <option value="${exam.id}">${exam.title}</option>
                     </#list>
                 </select>
 
                 <h5 class="mt-5">Оберіть третє ЗНО</h5>
                 <select class="form-select" aria-label="Default select example" name="third-zno">
-                    <#list znos as zno>
-                    <option value="${zno?counter}">${zno}</option>
+                    <#list exams as exam>
+                    <option value="${exam.id}">${exam.title}</option>
                     </#list>
                 </select>
 

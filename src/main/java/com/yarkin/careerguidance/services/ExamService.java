@@ -8,9 +8,8 @@ import java.util.List;
 public class ExamService {
     private final ExamDao examDao = new ExamDao();
 
-    public Exam[] getAll() {
-        List<Exam> exams = examDao.getAll();
-        return exams.toArray(new Exam[exams.size()]);
+    public List<Exam> getAll() {
+        return examDao.getAll();
     }
 
     public void add(Exam exam) {
@@ -21,14 +20,14 @@ public class ExamService {
         examDao.delete(id);
     }
 
-    public String[] getNames() {
-        Exam[] exams = getAll();
-        String[] examTitles = new String[exams.length];
-        for (int i = 0; i < exams.length; i++) {
-            examTitles[i] = exams[i].getTitle();
-        }
-        return examTitles;
-    }
+//    public String[] getNames() {
+//        Exam[] exams = getAll();
+//        String[] examTitles = new String[exams.length];
+//        for (int i = 0; i < exams.length; i++) {
+//            examTitles[i] = exams[i].getTitle();
+//        }
+//        return examTitles;
+//    }
 
     public void update(long id, Exam exam) {
         examDao.update(id, exam);

@@ -134,6 +134,28 @@
         <servlet-class>com.yarkin.careerguidance.servlets.admin.specialty.EditSpecialtyServlet</servlet-class>
     </servlet>
 
+    <!-- Cathedra -->
+
+    <servlet>
+        <servlet-name>AllCathedra</servlet-name>
+        <servlet-class>com.yarkin.careerguidance.servlets.admin.cathedra.AllCathedraServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>AddCathedra</servlet-name>
+        <servlet-class>com.yarkin.careerguidance.servlets.admin.cathedra.AddCathedraServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>DeleteCathedra</servlet-name>
+        <servlet-class>com.yarkin.careerguidance.servlets.admin.cathedra.DeleteCathedraServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>EditCathedra</servlet-name>
+        <servlet-class>com.yarkin.careerguidance.servlets.admin.cathedra.EditCathedraServlet</servlet-class>
+    </servlet>
+
     <!--
 
     <servlet>
@@ -284,6 +306,28 @@
     <servlet-mapping>
         <servlet-name>EditSpecialty</servlet-name>
         <url-pattern>/admin/specialty/edit</url-pattern>
+    </servlet-mapping>
+
+    <!-- Cathedra -->
+
+    <servlet-mapping>
+        <servlet-name>AllCathedra</servlet-name>
+        <url-pattern>/admin/cathedra/all</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>AddCathedra</servlet-name>
+        <url-pattern>/admin/cathedra/add</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>DeleteCathedra</servlet-name>
+        <url-pattern>/admin/cathedra/delete</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>EditCathedra</servlet-name>
+        <url-pattern>/admin/cathedra/edit</url-pattern>
     </servlet-mapping>
 
     <!-- User -->

@@ -30,6 +30,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/admin/zno/all">ЗНО</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/cathedra/all">Кафедри</a>
+                </li>
             </ul>
         </div>
     </nav>

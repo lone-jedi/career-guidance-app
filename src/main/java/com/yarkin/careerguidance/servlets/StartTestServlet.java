@@ -1,5 +1,6 @@
 package com.yarkin.careerguidance.servlets;
 
+import com.yarkin.careerguidance.entities.Exam;
 import com.yarkin.careerguidance.services.ExamService;
 import com.yarkin.careerguidance.services.ResultService;
 import com.yarkin.careerguidance.services.SpecialtyService;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class StartTestServlet extends HttpServlet {
@@ -24,9 +26,9 @@ public class StartTestServlet extends HttpServlet {
         Map<String, Object> params = new HashMap<>();
 
         // get ZNOs from DataBase
-        String[] znoNames = examService.getNames();
+        List<Exam> exams = examService.getAll();
 
-        params.put("znos", znoNames);
+        params.put("exams", exams);
         String content = PageGenerator.instance().getPage("maintest.ftl", params);
 
         request.setAttribute("content", content);
