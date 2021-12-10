@@ -37,13 +37,46 @@
 
 <content>
     <div class="container">
-        ${content!404}
+        <#if content??>
+            ${content}
+        <#else>
+            404 Not Found
+        </#if>
     </div>
 </content>
 
 <footer>
 
 </footer>
+
+<#if message??>
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="rounded me-2 bi bi-app bg-primary" viewBox="0 0 16 16">
+                    <path d="M11 2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h6zM5 1a4 4 0 0 0-4 4v6a4 4 0 0 0 4 4h6a4 4 0 0 0 4-4V5a4 4 0 0 0-4-4H5z"/>
+                </svg>
+                <#--            <img src="..." class="rounded me-2" alt="...">-->
+                <strong class="me-auto">Повідомлення</strong>
+                <small>зараз</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+            </div>
+            <div id="toast-message" class="toast-body bg-primary text-white"><strong>${message}</strong></div>
+        </div>
+    </div>
+
+    <!-- VERY BAD! -->
+    <script>
+        window.addEventListener("load", function() {
+            let toastHtml = document.getElementById('liveToast');
+            let toast = bootstrap.Toast.getOrCreateInstance(toastHtml);
+            if(document.getElementById('toast-message').innerHTML !== "") {
+                toast.show();
+            }
+        });
+    </script>
+</#if>
+
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

@@ -30,28 +30,28 @@
         <form action="/user/start/test" method="post" name="test-results">
             <div id="zno-part" class="content" role="tabpanel" aria-labelledby="zno-part-trigger">
                 <!-- ZNO select section -->
+                <h5 class="mt-5">Оберіть перше ЗНО</h5>
                 <select class="form-select" aria-label="Default select example" name="first-zno">
-                    <option selected>Оберіть перше ЗНО</option>
                     <#list znos as zno>
                     <option value="${zno?counter}">${zno}</option>
                     </#list>
                 </select>
 
+                <h5 class="mt-5">Оберіть друге ЗНО</h5>
                 <select class="form-select" aria-label="Default select example" name="second-zno">
-                    <option selected>Оберіть друге ЗНО</option>
                     <#list znos as zno>
                     <option value="${zno?counter}">${zno}</option>
                     </#list>
                 </select>
 
+                <h5 class="mt-5">Оберіть третє ЗНО</h5>
                 <select class="form-select" aria-label="Default select example" name="third-zno">
-                    <option selected>Оберіть третє ЗНО</option>
                     <#list znos as zno>
                     <option value="${zno?counter}">${zno}</option>
                     </#list>
                 </select>
 
-                <div class="mx-auto" style="width: 200px;">
+                <div class="mx-auto mt-5" style="width: 200px;">
                     <input type="button" class="btn bg-primary text-white" id="next-step-btn" value="Далі">
                 </div>
             </div>

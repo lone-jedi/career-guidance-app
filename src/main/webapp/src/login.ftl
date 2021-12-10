@@ -7,15 +7,18 @@
             <h1>Вхід</h1>
           </div>
         </div>
-        <div>
-          <p class="alert-warning">${error_msg}</p>
-        </div>
+        <#if error_msg??>
+          <div>
+            <p class="alert-warning">${error_msg}</p>
+          </div>
+        </#if>
+
         <form action="/login" method="post">
           <div class="form-group">
             <label for="exampleInputEmail1">Email адреса</label>
             <input type="email" name="email" class="form-control" id="email" name="email"
                    aria-describedby="emailHelp" placeholder="Введіть email"
-                  value="${email}">
+                  value="${email!}">
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Пароль</label>

@@ -6,6 +6,7 @@ import com.yarkin.careerguidance.services.ExamService;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.IOException;
+import java.net.URLEncoder;
 
 public class AddExamServlet extends HttpServlet {
     private final ExamService examService = new ExamService();
@@ -23,6 +24,7 @@ public class AddExamServlet extends HttpServlet {
 
         Exam exam = new Exam(title, description);
         examService.add(exam);
-        response.sendRedirect(response.encodeURL("/admin/zno/all?msg=Successfully added"));
+        response.sendRedirect(response.encodeURL("/admin/zno/all?message=" +
+                URLEncoder.encode("Екзамен \"" + title + "\" успішно доданий", "UTF-8")));
     }
 }

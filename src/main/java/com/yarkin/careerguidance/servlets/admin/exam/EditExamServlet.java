@@ -7,6 +7,7 @@ import com.yarkin.careerguidance.utils.templater.PageGenerator;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,6 +39,7 @@ public class EditExamServlet extends HttpServlet {
 
         // add to db
         examService.update(id, exam);
-        response.sendRedirect("/admin/zno/all?msg=Successfully updated");
+        response.sendRedirect("/admin/zno/all?message=" +
+                URLEncoder.encode("Екзамен \"" + title + "\" успішно оновлений", "UTF-8"));
     }
 }

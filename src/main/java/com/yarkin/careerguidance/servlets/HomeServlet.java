@@ -15,12 +15,10 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String userEmail = (String) request.getSession().getAttribute("user_email");
-
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("content", request.getAttribute("content"));
-        parameters.put("user_email", userEmail);
-
+        parameters.put("user_email", request.getSession().getAttribute("user_email"));
+        response.setContentType("text/html;charset=utf-8");
         response.getWriter().write(
                 PageGenerator.instance().getPage("templates/page.ftl", parameters));
     }

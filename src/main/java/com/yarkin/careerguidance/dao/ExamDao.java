@@ -66,7 +66,7 @@ public class ExamDao {
             preparedStatement.execute();
         } catch (SQLException e) {
             e.printStackTrace();
-            throw new RuntimeException("Cannot update exam id=" + exam.getId(), e);
+            throw new RuntimeException("Cannot update exam id=" + id, e);
         }
     }
 

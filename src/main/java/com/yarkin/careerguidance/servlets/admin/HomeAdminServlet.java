@@ -11,10 +11,9 @@ import java.util.Map;
 public class HomeAdminServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        log("doGet()");
-
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("content", request.getAttribute("content"));
+        parameters.put("message", request.getParameter("message"));
 
         String output = PageGenerator.instance().getPage("admin/template/page.ftl", parameters);
         response.setCharacterEncoding("UTF-8");
