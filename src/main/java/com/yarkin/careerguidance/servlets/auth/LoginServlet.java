@@ -18,9 +18,8 @@ public class LoginServlet extends HttpServlet {
         Map<String, Object> params = new HashMap<>();
         params.put("email", request.getParameter("email"));
         params.put("error_msg", request.getParameter("error_msg"));
-        String loginContent = PageGenerator.instance().getPage("login.html", params);
+        String loginContent = PageGenerator.instance().getPage("login.ftl", params);
 
-        request.setAttribute("user_email", "гість");
         request.setAttribute("content", loginContent);
         request.getRequestDispatcher("src/templates/page.ftl").forward(request, response);
     }

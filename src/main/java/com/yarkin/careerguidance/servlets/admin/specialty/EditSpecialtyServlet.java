@@ -1,7 +1,8 @@
-package com.yarkin.careerguidance.servlets.admin.exam;
+package com.yarkin.careerguidance.servlets.admin.specialty;
 
 import com.yarkin.careerguidance.entities.Exam;
-import com.yarkin.careerguidance.services.ExamService;
+import com.yarkin.careerguidance.entities.Specialty;
+import com.yarkin.careerguidance.services.SpecialtyService;
 import com.yarkin.careerguidance.utils.templater.PageGenerator;
 
 import javax.servlet.*;
@@ -11,35 +12,32 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
-public class EditExamServlet extends HttpServlet {
-    private final ExamService examService = new ExamService();
+public class EditSpecialtyServlet extends HttpServlet {
+    private static final SpecialtyService SPECIALTY_SERVICE = new SpecialtyService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // load form
-        // get form values
         int id = Integer.parseInt(request.getParameter("id"));
-        Exam exam = examService.get(id);
+        Specialty specialty = SPECIALTY_SERVICE.get(id);
 
         Map<String, Object> parameters = new HashMap<>();
-        parameters.put("exam", exam);
+        parameters.put("specialty", specialty);
 
-        String content = PageGenerator.instance().getPage("admin/exam/edit_exam.ftl", parameters);
+        String content = PageGenerator.instance().getPage("admin/specialty/edit_specialty.ftl",
+                parameters);
         request.setAttribute("content", content);
         request.getRequestDispatcher("/admin").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // get form values
         int id = Integer.parseInt(request.getParameter("id"));
         String title = request.getParameter("title");
         String description = request.getParameter("description");
-        Exam exam = new Exam(title, description);
 
-        // add to db
-        examService.update(id, exam);
-        response.sendRedirect("/admin/zno/all?message=" +
-                URLEncoder.encode("Екзамен \"" + title + "\" успішно оновлений", "UTF-8"));
+        SPECIALTY_SERVICE.update(id, new Specialty(title, description));
+
+        response.sendRedirect("/admin/specialty/all?message=" +
+                URLEncoder.encode("Спеціальність \"" + title + "\" успішно оновлена", "UTF-8"));
     }
 }

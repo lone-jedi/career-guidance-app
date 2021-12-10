@@ -1,4 +1,3 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html lang="ru">
 <head>
@@ -56,7 +55,11 @@
 
 <content>
     <div class="container">
-        ${content}
+        <#if content??>
+            ${content}
+        <#else>
+            <h1>Головна сторінка</h1>
+        </#if>
     </div>
 </content>
 

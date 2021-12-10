@@ -112,6 +112,28 @@
         <servlet-class>com.yarkin.careerguidance.servlets.admin.university.OneUniversityServlet</servlet-class>
     </servlet>
 
+    <!-- Specialties -->
+
+    <servlet>
+        <servlet-name>AllSpecialties</servlet-name>
+        <servlet-class>com.yarkin.careerguidance.servlets.admin.specialty.AllSpecialtiesServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>AddSpecialty</servlet-name>
+        <servlet-class>com.yarkin.careerguidance.servlets.admin.specialty.AddSpecialtyServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>DeleteSpecialty</servlet-name>
+        <servlet-class>com.yarkin.careerguidance.servlets.admin.specialty.DeleteSpecialtyServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>EditSpecialty</servlet-name>
+        <servlet-class>com.yarkin.careerguidance.servlets.admin.specialty.EditSpecialtyServlet</servlet-class>
+    </servlet>
+
     <!--
 
     <servlet>
@@ -240,6 +262,28 @@
     <servlet-mapping>
         <servlet-name>OneUniversity</servlet-name>
         <url-pattern>/admin/university/one</url-pattern>
+    </servlet-mapping>
+
+    <!-- Specialty -->
+
+    <servlet-mapping>
+        <servlet-name>AllSpecialties</servlet-name>
+        <url-pattern>/admin/specialty/all</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>AddSpecialty</servlet-name>
+        <url-pattern>/admin/specialty/add</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>DeleteSpecialty</servlet-name>
+        <url-pattern>/admin/specialty/delete</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>EditSpecialty</servlet-name>
+        <url-pattern>/admin/specialty/edit</url-pattern>
     </servlet-mapping>
 
     <!-- User -->
